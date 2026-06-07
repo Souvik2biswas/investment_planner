@@ -1,0 +1,173 @@
+@import "tailwindcss";
+
+:root {
+  --bg-primary: #080A10;
+  --bg-secondary: #0E121E;
+  --bg-card: rgba(18, 24, 41, 0.65);
+  --bg-card-hover: rgba(26, 34, 57, 0.85);
+  --border-glass: rgba(255, 255, 255, 0.08);
+  --border-glass-hover: rgba(255, 255, 255, 0.15);
+  
+  --color-primary: #00F2FE;
+  --color-primary-glow: rgba(0, 242, 254, 0.15);
+  --color-secondary: #4FACFE;
+  
+  --color-success: #00E676;
+  --color-success-glow: rgba(0, 230, 118, 0.15);
+  --color-warning: #FFD600;
+  --color-warning-glow: rgba(255, 214, 0, 0.15);
+  --color-danger: #FF1744;
+  --color-danger-glow: rgba(255, 23, 68, 0.15);
+  
+  --text-primary: #FFFFFF;
+  --text-secondary: #94A3B8;
+  --text-muted: #64748B;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: 'Outfit', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+/* Glassmorphism card utility */
+.glass-card {
+  background: var(--bg-card);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-glass);
+  border-radius: 16px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+.glass-card:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--border-glass-hover);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px 0 rgba(0, 242, 254, 0.08);
+}
+
+/* Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(8, 10, 16, 0.5);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-primary);
+}
+
+/* Neon Glow Animations */
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 15px 0 var(--color-primary-glow);
+  }
+  50% {
+    box-shadow: 0 0 25px 5px var(--color-primary-glow);
+  }
+}
+
+.pulse-glow-hover:hover {
+  animation: pulse-glow 2s infinite ease-in-out;
+}
+
+/* Typography styles */
+h1, h2, h3, h4 {
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Table styles */
+.finance-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.finance-table th {
+  text-align: left;
+  padding: 14px 16px;
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-bottom: 1px solid var(--border-glass);
+}
+
+.finance-table td {
+  padding: 14px 16px;
+  font-size: 0.95rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.finance-table tr:last-child td {
+  border-bottom: none;
+}
+
+.finance-table tr {
+  transition: background-color 0.2s ease;
+}
+
+.finance-table tr:hover td {
+  background-color: rgba(255, 255, 255, 0.02);
+}
+
+/* Inputs & Forms */
+.input-glass {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border-glass);
+  border-radius: 8px;
+  color: var(--text-primary);
+  padding: 10px 14px;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+.input-glass:focus {
+  border-color: var(--color-primary);
+  background: rgba(255, 255, 255, 0.06);
+  box-shadow: 0 0 0 3px var(--color-primary-glow);
+}
+
+/* Category Badges */
+.badge {
+  padding: 4px 10px;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.badge-food { background: rgba(255, 152, 0, 0.15); color: #FF9800; }
+.badge-utilities { background: rgba(33, 150, 243, 0.15); color: #2196F3; }
+.badge-rent { background: rgba(156, 39, 176, 0.15); color: #9C27B0; }
+.badge-travel { background: rgba(0, 188, 212, 0.15); color: #00BCD4; }
+.badge-entertainment { background: rgba(233, 30, 99, 0.15); color: #E91E63; }
+.badge-business { background: rgba(0, 230, 118, 0.15); color: #00E676; }
+.badge-salary { background: rgba(76, 175, 80, 0.15); color: #4CAF50; }
+.badge-investment { background: rgba(63, 81, 181, 0.15); color: #3F51B5; }
+.badge-deduction { background: rgba(255, 235, 59, 0.15); color: #FFEE58; border: 1px solid rgba(255, 235, 59, 0.3); }
+.badge-others { background: rgba(158, 158, 158, 0.15); color: #9E9E9E; }

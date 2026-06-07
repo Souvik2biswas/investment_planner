@@ -1,0 +1,35 @@
+# Local databases
+finance.db
+finance.db-shm
+finance.db-wal
+*.db
+*.db-shm
+*.db-wal
+
+# Python virtual environment and cache
+venv/
+.venv/
+env/
+__pycache__/
+*.pyc
+.pytest_cache/
+backend/venv/
+backend/**/__pycache__/
+backend/.pytest_cache/
+tests/__pycache__/
+
+# Node/Next.js dependencies and builds
+node_modules/
+.next/
+frontend/node_modules/
+frontend/.next/
+frontend/out/
+
+# Temp folders and logs
+temp/
+*.log
+.DS_Store
+Thumbs.db
+.env
+.env.local
+.env.production
